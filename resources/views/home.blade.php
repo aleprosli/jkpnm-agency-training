@@ -4,15 +4,15 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            @if (session('mesej'))
+                <div class="alert alert-success" role="alert">
+                    {{ session( 'mesej') }}
+                </div>
+            @endif
             <div class="card">
                 <div class="card-header">Paparan Utama</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session( 'status') }}
-                        </div>
-                    @endif
 
                     Tahniah, anda telah login
                 </div>
@@ -28,17 +28,19 @@
                           <tr>
                             <th scope="col">#</th>
                             <th scope="col">Nama Agensi</th>
-                            <th scope="col">Tarikh Daftar</th>
+                            <th scope="col">Alamat</th>
                             <th scope="col">Lain Lain</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                          </tr>
+                            @foreach ($senaraiAgensi as $key => $agency)
+                                <tr>
+                                    <th scope="row">{{ $key+1 }}</th>
+                                    <td>{{ $agency->name }}</td>
+                                    <td>{{ $agency->alamat }}</td>
+                                    <td>{{ $agency->created_at }}</td>
+                                </tr>
+                            @endforeach
                         </tbody>
                       </table>
                 </div>
