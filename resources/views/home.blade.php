@@ -21,7 +21,7 @@
             <div class="card mt-2">
                 <div class="card-header">Senarai Agensi</div>
                 <div class="card-body">
-                    <button type="button" class="btn btn-secondary">Tambah Agensi</button>
+                    <a href="{{ route('agency.create') }}" type="button" class="btn btn-secondary">Tambah Agensi</a>
 
                     <table class="table">
                         <thead>
