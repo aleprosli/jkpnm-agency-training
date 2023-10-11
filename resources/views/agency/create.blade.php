@@ -12,11 +12,11 @@
                         @csrf
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama Agensi</label>
-                            <input type="text" class="form-control" name="name" placeholder="Example input placeholder">
+                            <input type="text" class="form-control" name="name" placeholder="Nama Agensi">
                         </div>
                         <div class="mb-3">
                             <label for="alamat" class="form-label">Alamat Agensi</label>
-                            <input type="text" class="form-control" name="alamat" placeholder="Another input placeholder">
+                            <input type="text" class="form-control" name="alamat" placeholder="Alamat Agensi">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Simpan</button>

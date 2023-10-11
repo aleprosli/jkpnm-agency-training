@@ -19,6 +19,6 @@ class AgencyController extends Controller
             'alamat' => $request->alamat
         ]);
 
-        return to_route('home');
+        return to_route('home')->with('mesej', 'Agensi berjaya didaftarkan!');
     }
 }
