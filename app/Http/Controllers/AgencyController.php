@@ -26,4 +26,14 @@ class AgencyController extends Controller
     {
         return view('agency.show', compact('agency'));
     }
+
+    public function update(Request $request, Agensi $agency)
+    {
+        $agency->update([
+            'name' => $request->name,
+            'alamat' => $request->alamat
+        ]);
+
+        return to_route('home')->with('mesej', 'Kemaskini telah berjaya');
+    }
 }
