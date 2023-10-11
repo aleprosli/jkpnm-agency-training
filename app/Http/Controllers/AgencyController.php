@@ -21,4 +21,9 @@ class AgencyController extends Controller
 
         return to_route('home')->with('mesej', 'Agensi berjaya didaftarkan!');
     }
+
+    public function show(Agensi $agency)
+    {
+        return view('agency.show', compact('agency'));
+    }
 }

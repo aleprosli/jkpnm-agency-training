@@ -25,3 +25,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/tambah/agensi', [App\Http\Controllers\AgencyController::class, 'create'])->name('agency.create');
 Route::post('/simpan/agensi', [App\Http\Controllers\AgencyController::class, 'store'])->name('agency.store');
 
+Route::get('/kemaskini/agensi/{agency}', [App\Http\Controllers\AgencyController::class, 'show'])->name('agency.show');
+

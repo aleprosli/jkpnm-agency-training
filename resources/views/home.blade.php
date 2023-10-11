@@ -29,6 +29,7 @@
                             <th scope="col">#</th>
                             <th scope="col">Nama Agensi</th>
                             <th scope="col">Alamat</th>
+                            <th scope="col">Tarikh daftar</th>
                             <th scope="col">Lain Lain</th>
                           </tr>
                         </thead>
@@ -39,6 +40,10 @@
                                     <td>{{ $agency->name }}</td>
                                     <td>{{ $agency->alamat }}</td>
                                     <td>{{ $agency->created_at }}</td>
+                                    <td>
+                                        <a href="{{ route('agency.show', $agency) }}" type="button" class="btn btn-warning">Kemaskini</a>
+                                        <a href="" type="button" class="btn btn-danger">Padam</a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
