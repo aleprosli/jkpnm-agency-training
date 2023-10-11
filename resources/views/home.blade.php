@@ -42,7 +42,7 @@
                                     <td>{{ $agency->created_at }}</td>
                                     <td>
                                         <a href="{{ route('agency.show', $agency) }}" type="button" class="btn btn-warning">Kemaskini</a>
-                                        <a href="" type="button" class="btn btn-danger">Padam</a>
+                                        <a href="{{ route('agency.delete', $agency) }}" type="button" class="btn btn-danger">Padam</a>
                                     </td>
                                 </tr>
                             @endforeach

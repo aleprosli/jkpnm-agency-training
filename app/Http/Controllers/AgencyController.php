@@ -36,4 +36,11 @@ class AgencyController extends Controller
 
         return to_route('home')->with('mesej', 'Kemaskini telah berjaya');
     }
+
+    public function delete(Agensi $agency)
+    {
+        $agency->delete();
+
+        return to_route('home')->with('mesej', 'Agensi dipadam');
+    }
 }
