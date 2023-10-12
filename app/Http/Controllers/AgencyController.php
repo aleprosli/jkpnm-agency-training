@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\TambahAgensiRequest;
 use App\Models\Agensi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\AgensiBerjayaDaftarMail;
+use App\Http\Requests\TambahAgensiRequest;
 
 class AgencyController extends Controller
 {
@@ -15,11 +17,13 @@ class AgencyController extends Controller
 
     public function store(TambahAgensiRequest $request)
     {
-        Agensi::create([
+        $agensi = Agensi::create([
             'name' => $request->name,
             'alamat' => $request->alamat,
             'user_id' => auth()->user()->id
         ]);
+
+        Mail::to($agensi->user->email)->send(new AgensiBerjayaDaftarMail());
 
         return to_route('home')->with('mesej', 'Agensi berjaya didaftarkan!');
     }
