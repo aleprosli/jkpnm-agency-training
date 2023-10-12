@@ -26,7 +26,8 @@ class HomeController extends Controller
     {
         if ($request->search) {
             /*query untuk search persis*/
-            $senaraiAgensi = Agensi::where('alamat', 'LIKE', '%'.$request->search.'%')->get();
+            $senaraiAgensi = Agensi::where('alamat', 'LIKE', '%'.$request->search.'%')
+                            ->OrWhere('name', 'LIKE', '%'.$request->search.'%')->get();
 
             /*query untuk search exact*/
             // $senaraiAgensi = Agensi::where('alamat', '=', $request->search)->get();
