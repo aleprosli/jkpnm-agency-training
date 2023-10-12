@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Agensi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -32,7 +33,8 @@ class HomeController extends Controller
             /*query untuk search exact*/
             // $senaraiAgensi = Agensi::where('alamat', '=', $request->search)->get();
         } else {
-            $senaraiAgensi = Agensi::paginate(5);
+            // $senaraiAgensi = Agensi::where('user_id', '=', Auth::user()->id)->paginate(5);
+            $senaraiAgensi = Auth::user()->agencies()->paginate(5);
         }
 
         return view('home', compact('senaraiAgensi'));

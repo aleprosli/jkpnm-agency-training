@@ -17,7 +17,8 @@ class AgencyController extends Controller
     {
         Agensi::create([
             'name' => $request->name,
-            'alamat' => $request->alamat
+            'alamat' => $request->alamat,
+            'user_id' => auth()->user()->id
         ]);
 
         return to_route('home')->with('mesej', 'Agensi berjaya didaftarkan!');
