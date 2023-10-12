@@ -32,7 +32,7 @@ class HomeController extends Controller
             /*query untuk search exact*/
             // $senaraiAgensi = Agensi::where('alamat', '=', $request->search)->get();
         } else {
-            $senaraiAgensi = Agensi::all();
+            $senaraiAgensi = Agensi::latest()->get();
         }
 
         return view('home', compact('senaraiAgensi'));
