@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TambahAgensiRequest;
 use App\Models\Agensi;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class AgencyController extends Controller
         return view('agency.create');
     }
 
-    public function store(Request $request)
+    public function store(TambahAgensiRequest $request)
     {
         Agensi::create([
             'name' => $request->name,
