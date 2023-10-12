@@ -22,9 +22,18 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        $senaraiAgensi = Agensi::all();
+        if ($request->search) {
+            /*query untuk search persis*/
+            $senaraiAgensi = Agensi::where('alamat', 'LIKE', '%'.$request->search.'%')->get();
+
+            /*query untuk search exact*/
+            // $senaraiAgensi = Agensi::where('alamat', '=', $request->search)->get();
+        } else {
+            $senaraiAgensi = Agensi::all();
+        }
+
         return view('home', compact('senaraiAgensi'));
     }
 }

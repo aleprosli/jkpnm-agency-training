@@ -20,6 +20,14 @@
 
             <div class="card mt-2">
                 <div class="card-header">Senarai Agensi</div>
+                    <form method="" action="">
+                        <div class="input-group mt-2 p-2">
+                            <input type="text" class="form-control" name="search" value="{{ request()->get('search') }}">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">Search</button>
+                            </div>
+                        </div>
+                    </form>
                 <div class="card-body">
                     <a href="{{ route('agency.create') }}" type="button" class="btn btn-secondary">Tambah Agensi</a>
 
